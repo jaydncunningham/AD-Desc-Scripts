@@ -1,10 +1,16 @@
 ﻿Import-Module ActiveDirectory
 
+function StringIsNullOrWhitespace([string] $string)
+{
+    if ($string -ne $null) { $string = $string.Trim() }
+    return [string]::IsNullOrEmpty($string)
+}
+
 $parsedUsers = Import-Csv "ad-descs-sanitized.csv"
 
 foreach($user in $parsedUsers) {
     echo $user.DistinguishedName
-    if([string]::IsNullOrWhiteSpace($user.Description)) {
+    if(StringIsNullOrWhitespace($user.Description)) {
         $user.Description = $null
     }
     echo $user.Description
