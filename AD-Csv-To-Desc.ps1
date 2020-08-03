@@ -1,4 +1,6 @@
-﻿$parsedUsers = Import-Csv "ad-descs-sanitized.csv"
+﻿Import-Module ActiveDirectory
+
+$parsedUsers = Import-Csv "ad-descs-sanitized.csv"
 
 foreach($user in $parsedUsers) {
     echo $user.DistinguishedName

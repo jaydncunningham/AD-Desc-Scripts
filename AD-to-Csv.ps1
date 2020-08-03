@@ -1,4 +1,6 @@
-﻿if($Args.Count -Ne 1) {
+﻿Import-Module ActiveDirectory
+
+if($Args.Count -Ne 1) {
     Write-Host "Usage: .\AD-to-Csv.ps1 <organization name>"
     Exit
 }

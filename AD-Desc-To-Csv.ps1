@@ -1,4 +1,6 @@
-﻿$allUsers = Get-AdUser -Filter * -Properties Description
+﻿Import-Module ActiveDirectory
+
+$allUsers = Get-AdUser -Filter * -Properties Description
 
 $parsedUsers = @()
  
